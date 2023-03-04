@@ -19,9 +19,10 @@ public class Delete {
         System.out.println("Which element in array you want to delete : ");
         int num = sc.nextInt();
 
-        for (int j=0; j<n-1; j++){
+        for (int j=0,k=0; j<n; j++){
             if(arr[j]!=num){
-                newarr[j] = arr[j];
+                newarr[k] = arr[j];
+                k++;
             }
         }
 
