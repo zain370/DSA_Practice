@@ -28,5 +28,8 @@ public class Delete {
 
         System.out.println("Array Before Deleting " + Arrays.toString(arr));
         System.out.println("Array  After Deleting " + Arrays.toString(newarr));
+        for (int x:newarr) {
+            System.out.print(x+", ");
+        }
     }
 }
