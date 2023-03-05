@@ -17,7 +17,7 @@ public class Queue {
             System.out.println("Queue is full");
             System.exit(0);
         }
-        rear++;
+        rear++;                     // rear++ means that index of last element will be incremented when a new element will be added to the queue/
         arr[rear] = x;
     }
 
@@ -30,7 +30,7 @@ public class Queue {
         for (int i = 0; i < rear; i++) {
             arr[i] = arr[i+1];
         }
-        rear--;
+        rear--;                     // rear-- means that index of last element will be decremented when first element will be removed from the queue
         return front;
     }
 
