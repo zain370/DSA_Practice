@@ -8,8 +8,8 @@ public class Stack {
 
     Stack(int size){
         stack = new int[size];
-    this.size = size;
-    top = -1;
+        this.size = size;
+        top = -1;
     }
 
 
