@@ -1,51 +1,103 @@
-/*
 import java.util.Stack;
 
 public class InfixToPostfix {
 
-    public int precedence(char c) {
-        if (c == '^')
-            return 3;
-        else if (c == '/' || c == '*')
-            return 2;
-        else if (c == '+' || c == '-')
-            return 1;
-        else
-            return -1;
-    }
 
-    public String infixToPostfix(String s){
-        Stack<Character> myStack = new Stack<>();
+    public String infixToPostfix(String infix) {
 
-        char  []res = new char[s.length()];
-        char[] stringToChar = s.toCharArray();
+        String postfixExp = "";
+        Stack<Character> stack = new Stack<>();
+        stack.push('(');
 
-        for (int i = 0; i < s.length(); i++) {
-            if(Character.isAlphabetic(s.charAt(i))){
-                res[i] =stringToChar[i];
+        postfixExp = postfixExp.concat(String.valueOf(')'));
+
+        for (int i = 0; i < infix.length(); i++) {
+            char Chrac = infix.charAt(i);
+            if (Character.isAlphabetic(Chrac) || Character.isDigit(Chrac)) {
+                postfixExp = postfixExp.concat(String.valueOf(Chrac));
+            } else if (Chrac=='('){
+                stack.push(Chrac);
+            } else if(isOperator(Chrac)){
+                while (!stack.empty()){
+
+                    if(precedence(stack.peek())>=precedence(Chrac)){
+                        postfixExp=postfixExp.concat(String.valueOf(stack.pop()));
+
+                    }
+                    else{
+                        stack.push(Chrac);
+                        break;
+                    }
+
+                }
+            }
+            else if(Chrac==')'){
+                while(!stack.empty())
+                {
+                    if(stack.peek()!='('){
+                        postfixExp=postfixExp.concat(String.valueOf(stack.pop()));
+                    }
+                    else{
+                        stack.pop();
+                        break;
+                    }
+                }
 
             }
 
-            else if(stringToChar[i] == '('){
-                myStack.push((stringToChar[i]));
-            }
-
-            else if(stringToChar[i] == ')'){
-                while (!myStack.isEmpty() && myStack.peek()!='('){
-                    res[i] =myStack.peek();
-                    myStack.pop();
-                }
-                if(myStack.isEmpty()){
-                    myStack.pop();
-                }
-                else {
-                    while (!myStack.isEmpty() && precedence() )
-                }
-            }
 
 
         }
-    }}
+
+        return postfixExp;
+    }
+        boolean isOperator(char x){
+            boolean response=false;
+
+            switch(x){
+                case '/':
+                case'^':
+                case '+':
+                case'-':
+                case'*':
+                    response = true;
+
+            }
+            return response;
+        }
+
+        int precedence(char x ){
+            int response=0;
+
+            switch (x)
+            {
+                case'^':
+                    response=3;
+                    break;
+                case'/':
+                case'*':
+                    response=2;
+                    break;
+                case'+':
+                case'-':
+                    response=1;
+                    break;
+            }
+                    return response;
+
+        }
 
 
-*/
+
+
+
+
+
+
+    public static void main(String[] args) {
+        InfixToPostfix ip=new InfixToPostfix();
+        String infix="A*B/D";
+        System.out.println(ip.infixToPostfix(infix));
+    }
+
+}
