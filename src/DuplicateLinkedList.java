@@ -10,45 +10,47 @@ public class DuplicateLinkedList{
         }
     }
 
-    public static Node duplicateLinkedList(Node head) {
-        Node duplicateHead = null;
+    public static Node copy(Node list) {
+        Node duplicatelist = null;
         Node duplicateTail = null;
 
-        while (head != null) {
-            Node newNode = new Node(head.data);
-            if (duplicateHead == null) {
-                duplicateHead = newNode;
+        while (list != null) {
+            Node newNode = new Node(list.data);
+            if (duplicatelist == null) {
+                duplicatelist = newNode;
                 duplicateTail = newNode;
             } else {
                 duplicateTail.next = newNode;
                 duplicateTail = newNode;
             }
-            head = head.next;
+            list = list.next;
         }
-        return duplicateHead;
+        return duplicatelist;
     }
 
     public static void main(String[] args) {
-        Node originalHead = new Node("apple");
-        originalHead.next = new Node("banana");
-        originalHead.next.next = new Node("orange");
+        Node originallist = new Node("Java");
+        originallist.next = new Node("Python");
+        originallist.next.next = new Node("Ruby");
 
-        Node duplicateHead = duplicateLinkedList(originalHead);
+        Node duplicatelist = copy(originallist);
 
         // Modify the original linked list
-        originalHead.next.next.data = "grape";
+        originallist.next.next.data = "Ruby";
 
         System.out.println("Original Linked List:");
-        printLinkedList(originalHead);
+        printLinkedList(originallist);
+
+        System.out.println(" ");
 
         System.out.println("Duplicate Linked List:");
-        printLinkedList(duplicateHead);
+        printLinkedList(duplicatelist);
     }
 
-    public static void printLinkedList(Node head) {
-        while (head != null) {
-            System.out.print(head.data + " ");
-            head = head.next;
+    public static void printLinkedList(Node list) {
+        while (list != null) {
+            System.out.print(list.data + " ");
+            list = list.next;
         }
         System.out.println();
     }

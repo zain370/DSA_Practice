@@ -10,8 +10,8 @@ public class LinkedListReplaceMethod {
         }
     }
 
-    public static void replace(Node head, int i, int x) {
-        Node temp = head;
+    public static void replace(Node list, int i, int x) {
+        Node temp = list;
         int count = 0;
 
         while (temp != null && count < i) {
@@ -25,27 +25,27 @@ public class LinkedListReplaceMethod {
     }
 
     public static void main(String[] args) {
-        Node head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(4);
-        head.next.next.next.next = new Node(5);
+        Node list = new Node(1);
+        list.next = new Node(2);
+        list.next.next = new Node(3);
+        list.next.next.next = new Node(4);
+        list.next.next.next.next = new Node(5);
 
         System.out.println("Original Linked List:");
-        printLinkedList(head);
+        printLinkedList(list);
 
-        replace(head, 2, 10);
+        replace(list, 2, 10);
         System.out.println(" ");
         System.out.println("Replacing node 2 with value 10");
 
         System.out.println("Linked List after replacement:");
-        printLinkedList(head);
+        printLinkedList(list);
     }
 
-    public static void printLinkedList(Node head) {
-        while (head != null) {
-            System.out.print(head.data + " ");
-            head = head.next;
+    public static void printLinkedList(Node list) {
+        while (list != null) {
+            System.out.print(list.data + " ");
+            list = list.next;
         }
         System.out.println();
     }
