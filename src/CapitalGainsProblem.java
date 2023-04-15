@@ -1,4 +1,4 @@
-import java.util.*;
+/*import java.util.*;
 
 public class CapitalGainsProblem {
 
@@ -71,4 +71,4 @@ public class CapitalGainsProblem {
         int gains = problem.calculateGains();
         System.out.println("Total gains: " + gains);
     }
-}
+}*/
