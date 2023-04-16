@@ -27,7 +27,7 @@ public class DoublyCircularLinkedList {
         return size == 0;
     }
 
-    public void insertAtBeginning(int data) {
+    public void insertAtStart(int data) {
         Node newNode = new Node(data);
         if (isEmpty()) {
             head = newNode;
@@ -63,7 +63,7 @@ public class DoublyCircularLinkedList {
             throw new IndexOutOfBoundsException("Invalid position");
         }
         if (position == 0) {
-            insertAtBeginning(data);
+            insertAtStart(data);
         } else if (position == size) {
             insertAtEnd(data);
         } else {
@@ -80,7 +80,7 @@ public class DoublyCircularLinkedList {
         }
     }
 
-    public void deleteAtBeginning() {
+    public void deleteAtStart() {
         if (isEmpty()) {
             throw new IllegalStateException("List is empty");
         }
@@ -112,7 +112,7 @@ public class DoublyCircularLinkedList {
             throw new IndexOutOfBoundsException("Invalid position");
         }
         if (position == 0) {
-            deleteAtBeginning();
+            deleteAtStart();
         } else if (position == size - 1) {
             deleteAtEnd();
         } else {
@@ -146,7 +146,7 @@ public class DoublyCircularLinkedList {
             list.insertAtEnd(10);
             list.insertAtEnd(20);
             list.insertAtEnd(30);
-            list.insertAtBeginning(5);
+            list.insertAtStart(5);
             list.insertAtPosition(15, 2);
 
             // Display the list
@@ -155,7 +155,7 @@ public class DoublyCircularLinkedList {
             System.out.println("Size: " + list.getSize());
 
             // Delete elements from the list
-            list.deleteAtBeginning();
+            list.deleteAtStart();
             list.deleteAtEnd();
             list.deleteAtPosition(1);
 
