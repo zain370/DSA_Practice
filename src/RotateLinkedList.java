@@ -45,12 +45,14 @@ public class RotateLinkedList {
 
     // Sample test
     public static void main(String[] args) {
-        RotateLinkedList list1=new RotateLinkedList();
+
         Node list = new Node(1);
         list.next = new Node(2);
         list.next.next = new Node(3);
         list.next.next.next = new Node(4);
         list.next.next.next.next = new Node(5);
+
+        printLinkedList(list);
 
 
 
