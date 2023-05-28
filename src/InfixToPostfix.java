@@ -2,7 +2,9 @@ import java.util.Stack;
 import java.util.Scanner;
 
 public class InfixToPostfix {
+
     public static String convert(String infix) {
+
         StringBuilder postfix = new StringBuilder();
         Stack<Character> stack = new Stack<>();
 

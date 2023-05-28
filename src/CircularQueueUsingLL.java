@@ -1,4 +1,4 @@
-public class  CircularQueueUsingLL {
+/*public class  CircularQueueUsingLL {
 
      private Node rear;
      private int size;
@@ -44,14 +44,34 @@ public class  CircularQueueUsingLL {
          return data;
      }
 
-     public int front() {
+    public void reverse() {
+        Node prev = null;
+        Node current = front;
+        Node next = null;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        rear = front;
+        front = prev;
+    }
+
+
+    public int front() {
          if (rear == null) {
              throw new IllegalStateException("Queue is empty");
          }
          return rear.next.data;
      }
 
-     public int size() {
+
+
+
+    public int size() {
          return size;
      }
 
@@ -78,12 +98,12 @@ public class  CircularQueueUsingLL {
          queue.enqueue(2);
          queue.enqueue(3);
          queue.enqueue(4);
+         queue.enqueue(5);
          queue.printQueue();
-         System.out.println("Front element: " + queue.front());
-         System.out.println("Dequeued element: " + queue.dequeue());
-         System.out.println("Size: " + queue.size());
-         System.out.println("Is empty: " + queue.isEmpty());
+
+         System.out.println("5 4 3 2 1");
      }
  }
 
 
+/*/

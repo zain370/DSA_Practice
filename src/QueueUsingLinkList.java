@@ -34,6 +34,36 @@ public class QueueUsingLinkList {
         }
     }
 
+    public void reverse() {
+        Node prev = null;
+        Node current = front;
+        Node next = null;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        rear = front;
+        front = prev;
+    }
+
+    public int removeSecond() {
+        if (front == null || front.next == null) {
+            throw new IllegalArgumentException("Queue has fewer than two elements");
+        }
+        Node second = front.next;
+        front.next = second.next;
+        if (front.next == null) {
+            rear = front;
+        }
+        return second.data;
+    }
+
+
+
     public int dequeue(){
         if (isEmpty()){
             throw new IllegalArgumentException("Queue is empty");
@@ -70,9 +100,17 @@ public class QueueUsingLinkList {
 
             QueueUsingLinkList queue = new QueueUsingLinkList();
 
-            queue.enqueue(10);
-            queue.enqueue(20);
-            queue.enqueue(30);
+            queue.enqueue(1);
+            queue.enqueue(2);
+            queue.enqueue(3);
+            queue.enqueue(4);
+            queue.enqueue(5);
+            System.out.print("Before removing the second element: ");
+            queue.display();
+            queue.removeSecond();
+
+            System.out.print("After removing the second element:  ");
+
 
             queue.display();
 
