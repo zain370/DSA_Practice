@@ -100,21 +100,25 @@ class DequeUsingLL {
 
         System.out.println();
     }
-}
 
-public class Main {
-    public static void main(String[] args) {
-        DequeUsingLL deque = new DequeUsingLL();
 
-        deque.insertFront(2);
-        deque.insertFront(1);
-        deque.insertRear(3);
+    public class Main {
+        public static void main(String[] args) {
+            DequeUsingLL deque = new DequeUsingLL();
 
-        deque.display(); // Output: 1 2 3
+            deque.insertFront(2);
+            deque.insertFront(1);
+            deque.insertRear(3);
 
-        deque.deleteFront();
-        deque.deleteRear();
+            deque.display(); // Output: 1 2 3
 
-        deque.display(); // Output: 2
+            deque.deleteFront();
+            deque.deleteRear();
+
+            deque.display(); // Output: 2
+        }
     }
+
 }
+
+
