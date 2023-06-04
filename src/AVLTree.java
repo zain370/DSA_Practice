@@ -145,12 +145,19 @@ public class AVLTree {
     }
 
     public static void main(String[] args) {
-        AVLTree tree = new AVLTree(new int[] {10, 20, 30, 40, 50,60,70});
+        AVLTree tree = new AVLTree(new int[] {15,25,35,45,55,65,75});
 
 
-
-        System.out.println("Inorder traversal of the AVL tree:");
+         System.out.print("Inorder traversal of the AVL tree: ");
         tree.inorder();
+        System.out.println("");
+     //   System.out.print(65"Is it an AVL :");
+     //   System.out.println(tree.isAVLTree());
+
+
+      //  System.out.println("Tree contains 55: "+ tree.contains(55));
+      //  System.out.println("Tree contains 102: "+ tree.contains(102));
+
 
     }
 }
